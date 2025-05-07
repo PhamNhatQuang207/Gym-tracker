@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabase';
+import { useNavigate } from 'react-router-dom';
 import gymImage from '../assets/background.jpg';
 
 export default function Login({ onToggle }) {
@@ -8,11 +9,14 @@ export default function Login({ onToggle }) {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [showReset, setShowReset] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
     setMessage('');
+    setLoading(true);
 
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -21,15 +25,26 @@ export default function Login({ onToggle }) {
 
     if (error) {
       setError('Invalid email or password.');
-    } else {
+    } else if (data.user) {
       setMessage('Logged in successfully!');
+      console.log('User:', data.user);
+
+      // ✅ Redirect to dashboard after successful login
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1000);
+    } else {
+      setError('Unexpected error. Please try again.');
     }
+
+    setLoading(false);
   };
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
     setError('');
     setMessage('');
+    setLoading(true);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email);
 
@@ -38,6 +53,8 @@ export default function Login({ onToggle }) {
     } else {
       setMessage('Reset email sent. Check your inbox.');
     }
+
+    setLoading(false);
   };
 
   return (
@@ -82,8 +99,11 @@ export default function Login({ onToggle }) {
           </>
         )}
 
-        <button className="mt-8 bg-white text-black py-2 rounded-md font-semibold hover:bg-gray-200 transition">
-          {showReset ? 'Send Reset Email' : 'Log In'}
+        <button
+          className="mt-8 bg-white text-black py-2 rounded-md font-semibold hover:bg-gray-200 transition"
+          disabled={loading}
+        >
+          {loading ? 'Processing...' : showReset ? 'Send Reset Email' : 'Log In'}
         </button>
 
         <p className="mt-4 text-center text-sm text-gray-300">
