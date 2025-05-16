@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import workoutIcon from "../assets/icons/workout.jpg";
 import photosIcon from "../assets/icons/photo.jpg";
 import dashboardBg from "../assets/icons/dashboard_background.jpg";
+import profileIcon from "../assets/icons/profile-icon.png";
 
 export default function Dashboard() {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    // Navigate to profile or settings page (optional)
+    navigate("/profile");
     console.log("Profile clicked");
   };
 
@@ -37,9 +38,11 @@ export default function Dashboard() {
           className="flex items-center space-x-2 cursor-pointer z-10"
           onClick={handleProfileClick}
         >
-          <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center font-bold hover:bg-blue-600 transition">
-            P
-          </div>
+          <img
+            src={profileIcon}
+            alt="Profile"
+            className="w-12 h-12 rounded-full object-cover hover:opacity-80 transition"
+          />
           <span className="font-semibold text-lg">Profile</span>
         </div>
         <h1 className="text-3xl font-bold absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
