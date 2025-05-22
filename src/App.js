@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import ResetPassword from './pages/ResetPassword';
 import ChangePassword from './pages/ChangePassword';
 import ProtectedRoute from './components/ProtectedRoute';
+import Workout from './pages/WorkoutTracking';
 
 export default function App() {
   return (
@@ -37,22 +38,14 @@ export default function App() {
         />
         <Route
           path="/workout"
-          element={
-            <ProtectedRoute>
-              <div className="h-screen flex items-center justify-center text-white bg-gray-900">
-                Workout page coming soon...
-              </div>
-            </ProtectedRoute>
-          }
+          element={<Workout />}
         />
         <Route
           path="/photos"
           element={
-            <ProtectedRoute>
-              <div className="h-screen flex items-center justify-center text-white bg-gray-900">
-                Photos page coming soon...
-              </div>
-            </ProtectedRoute>
+            <div className="h-screen flex items-center justify-center text-white bg-gray-900">
+              Photos page coming soon...
+            </div>
           }
         />
       </Routes>
