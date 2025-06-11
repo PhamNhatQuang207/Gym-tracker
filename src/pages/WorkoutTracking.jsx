@@ -1,23 +1,38 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import dashboardBg from "../assets/icons/dashboard_background.jpg";
-import muscleIcon from "../assets/icons/photo.jpg";
+
+// Import muscle group images
+import abdominals from "../assets/icons/Muscle Group/Abdominals.jpg";
+import biceps from "../assets/icons/Muscle Group/Biceps.jpg";
+import calves from "../assets/icons/Muscle Group/Calves.jpg";
+import chest from "../assets/icons/Muscle Group/Chest.jpg";
+import forearms from "../assets/icons/Muscle Group/Forearms.jpg";
+import glutes from "../assets/icons/Muscle Group/Glutes.jpg";
+import hamstrings from "../assets/icons/Muscle Group/Hamstrings.jpg";
+import lats from "../assets/icons/Muscle Group/Lats.jpg";
+import lowerBack from "../assets/icons/Muscle Group/Lower Back.jpg";
+import middleBack from "../assets/icons/Muscle Group/Middle Back.jpg";
+import quadriceps from "../assets/icons/Muscle Group/Quadriceps.jpg";
+import shoulders from "../assets/icons/Muscle Group/Shoulders.jpg";
+import traps from "../assets/icons/Muscle Group/Traps.jpg";
+import triceps from "../assets/icons/Muscle Group/Triceps.jpg";
 
 const categoryData = [
-  { id: 'abdominals', name: 'Abdominals', image: muscleIcon },
-  { id: 'chest', name: 'Chest', image: muscleIcon },
-  { id: 'shoulders', name: 'Shoulders', image: muscleIcon },
-  { id: 'triceps', name: 'Triceps', image: muscleIcon },
-  { id: 'forearms', name: 'Forearms', image: muscleIcon },
-  { id: 'lats', name: 'Lats', image: muscleIcon },
-  { id: 'middle_back', name: 'Middle Back', image: muscleIcon },
-  { id: 'lower_back', name: 'Lower Back', image: muscleIcon },
-  { id: 'traps', name: 'Traps', image: muscleIcon },
-  { id: 'biceps', name: 'Biceps', image: muscleIcon },
-  { id: 'quadriceps', name: 'Quadriceps', image: muscleIcon },
-  { id: 'glutes', name: 'Glutes', image: muscleIcon },
-  { id: 'hamstrings', name: 'Hamstrings', image: muscleIcon },
-  { id: 'calves', name: 'Calves', image: muscleIcon }
+  { id: 'abdominals', name: 'Abdominals', image: abdominals },
+  { id: 'chest', name: 'Chest', image: chest },
+  { id: 'shoulders', name: 'Shoulders', image: shoulders },
+  { id: 'triceps', name: 'Triceps', image: triceps },
+  { id: 'forearms', name: 'Forearms', image: forearms },
+  { id: 'lats', name: 'Lats', image: lats },
+  { id: 'middle_back', name: 'Middle Back', image: middleBack },
+  { id: 'lower_back', name: 'Lower Back', image: lowerBack },
+  { id: 'traps', name: 'Traps', image: traps },
+  { id: 'biceps', name: 'Biceps', image: biceps },
+  { id: 'quadriceps', name: 'Quadriceps', image: quadriceps },
+  { id: 'glutes', name: 'Glutes', image: glutes },
+  { id: 'hamstrings', name: 'Hamstrings', image: hamstrings },
+  { id: 'calves', name: 'Calves', image: calves }
 ];
 
 export default function Workout() {
