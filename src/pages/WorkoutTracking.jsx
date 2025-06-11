@@ -84,11 +84,13 @@ export default function Workout() {
                   onClick={() => navigate(`/exercises/${category.id}`)}
                   className="relative flex flex-col items-center justify-center p-10 rounded-xl transition-all hover:bg-gray-700/60 min-h-[250px] bg-gray-800/40 group"
                 >
-                  <img 
-                    src={category.image} 
-                    alt={category.name} 
-                    className="w-32 h-32 mb-6 object-contain transition-transform group-hover:scale-110"
-                  />
+                  <div className="w-40 h-40 mb-6 overflow-hidden rounded-xl bg-gray-700/50">
+                    <img 
+                      src={category.image} 
+                      alt={category.name} 
+                      className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                    />
+                  </div>
                   <span className="text-2xl font-medium text-center text-white">{category.name}</span>
                 </button>
               ))}
